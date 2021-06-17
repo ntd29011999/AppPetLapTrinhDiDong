@@ -45,7 +45,7 @@ class LoginActivity : AppCompatActivity() {
         edtPassword.setText(sharedPasswordValue)
         GetData().execute(urlGetAccount)
         val handler = Handler()
-        handler.postDelayed(Runnable { // Do something after 5s = 5000ms
+        handler.postDelayed(Runnable { // Do something after 1s = 2000ms
             var checkAccount = CheckAccount(
                 edtPhone.text.toString().trim(),
                 edtPassword.text.toString().trim()
@@ -62,7 +62,7 @@ class LoginActivity : AppCompatActivity() {
                 startActivity(intent)
                 //finish()
             }
-        }, 1000)
+        }, 2000)
 
 
         btnToSignUp.setOnClickListener {

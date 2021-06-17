@@ -5,16 +5,17 @@
     android:id="@+id/dialogDevice"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#AEB1B6">
+    >
 
 
     <Switch
+        android:padding="10dp"
         android:id="@+id/switchMODE"
         android:layout_width="250dp"
         android:layout_height="50dp"
         android:text="MODE"
         android:textOff="MANUAL"
-        android:background="#00FFCB"
+        android:background="#E6E9ED"
         android:textOn="AUTO"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -25,12 +26,13 @@
         app:layout_constraintVertical_bias="0.101" />
 
     <Switch
+        android:padding="10dp"
         android:id="@+id/switchSTATE"
         android:layout_width="250dp"
-        android:background="#00FFCB"
+        android:background="#E6E9ED"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
-        android:text="STATE"
+        android:text="Air-Condition"
         android:textSize="20sp"
         android:textOff="OFF"
         android:textOn="ON"
@@ -40,9 +42,10 @@
         app:layout_constraintTop_toBottomOf="@+id/switchLED" />
 
     <Switch
+        android:padding="10dp"
         android:id="@+id/switchLED"
         android:layout_width="250dp"
-        android:background="#00FFCB"
+        android:background="#E6E9ED"
         android:layout_height="50dp"
         android:layout_marginTop="40dp"
         android:textSize="20sp"

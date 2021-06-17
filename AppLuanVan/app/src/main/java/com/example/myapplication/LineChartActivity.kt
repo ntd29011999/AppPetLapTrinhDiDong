@@ -16,46 +16,37 @@ class LineChartActivity : AppCompatActivity()  {
         var mangND:ArrayList<String> = ArrayList()
         var mangTg:ArrayList<String> = ArrayList()
         var mangNgay:ArrayList<String> = ArrayList()
+        var mangX:ArrayList<String> = ArrayList()
         bundle?.let {
             mangND = bundle.getStringArrayList("NhietDo") as ArrayList<String>
             mangTg = bundle.getStringArrayList("ThoiGian") as ArrayList<String>
             mangNgay = bundle.getStringArrayList("Ngay") as ArrayList<String>
-
         }
-        tvNgay.text = mangNgay[0]
-        setLineChartData(mangND,mangTg)
+        for (i in 0 until 144) {
+            mangX.add(mangTg[i]+"("+mangNgay[i]+")")
+        }
+        tvNgay.text =  mangX[142] +  " - " + mangX[0]
+        setLineChartData(mangND,mangX)
     }
 
 
     fun setLineChartData(mangND:ArrayList<String>,mangTg:ArrayList<String>){
         val lineChart = findViewById<LineChart>(R.id.lineChart)
         val xvalue = ArrayList<String>()
-        for (i in 0 until 143) {
-            xvalue.add(mangTg[143-i])
+        for (i in 0 until mangTg.size-1) {
+            xvalue.add(mangTg[mangTg.size-1-i])
         }
 
-//        xvalue.add(mangTg[4])
-//        xvalue.add(mangTg[3])
-//        xvalue.add(mangTg[2])
-//        xvalue.add(mangTg[1])
-//        xvalue.add(mangTg[0])
 
         val yentries = ArrayList<Entry>()
-        for (i in 0 until 143) {
+        for (i in 0 until mangND.size-1) {
             yentries.add(Entry(mangND[143-i].toFloat(),i))
         }
-//        yentries.add(Entry(mangND[4].toFloat(),0))
-//        yentries.add(Entry(mangND[3].toFloat(),1))
-//        yentries.add(Entry(mangND[2].toFloat(),2))
-//        yentries.add(Entry(mangND[1].toFloat(),3))
-//        yentries.add(Entry(mangND[0].toFloat(),4))
 
         val linedataset1 = LineDataSet(yentries,"NhietDo")
         linedataset1.color = resources.getColor(R.color.purple_700)
         linedataset1.lineWidth = 2f
         linedataset1.valueTextSize = 20f
-
-
         val data = LineData(xvalue,linedataset1)
 
         lineChart.data = data
